@@ -1,0 +1,59 @@
+<section id="container_principal_cliente">
+  <div id="formulario">
+    <h3>Cadastro de Clientes</h3>
+    <section class="example-form">
+      <mat-form-field class="element2">
+        <input matInput placeholder="Nome cliente" [(ngModel)]="baseObject.clienteNome" name="clienteNome">
+      </mat-form-field>
+      <mat-form-field class="element2">
+        <input matInput placeholder="CNPJ" [(ngModel)]="baseObject.clienteCnpj" name="clienteCnpj" mask="00.000.000/0000-00">
+      </mat-form-field>
+      <mat-form-field class="element3">
+        <input matInput placeholder="Endereço" [(ngModel)]="baseObject.endereco" name="endereco">
+      </mat-form-field>
+      <mat-form-field class="element3">
+        <input matInput placeholder="Número" [(ngModel)]="baseObject.numero" name="numero" type="number">
+      </mat-form-field>
+      <mat-form-field class="element3">
+        <input matInput placeholder="Complemento" [(ngModel)]="baseObject.complemento" name="complemento">
+      </mat-form-field>
+      <mat-form-field class="element3">
+        <input matInput placeholder="Cidade" [(ngModel)]="baseObject.cidade" name="cidade">
+      </mat-form-field>
+      <mat-form-field class="element3">
+        <input matInput placeholder="Bairro" [(ngModel)]="baseObject.bairro" name="bairro">
+      </mat-form-field>
+      <mat-form-field class="element3">
+        <input matInput placeholder="UF" [(ngModel)]="baseObject.uf" name="uf">
+      </mat-form-field>
+      <mat-form-field class="element2">
+        <input matInput placeholder="Fone" [(ngModel)]="baseObject.fone" name="fone">
+      </mat-form-field>
+      <mat-form-field class="element2">
+        <input matInput placeholder="E-mail" [(ngModel)]="baseObject.email" name="email">
+      </mat-form-field>
+      <mat-form-field class="element2">
+        <mat-label>Onibus Adicionados</mat-label>
+        <mat-select [(ngModel)]="linhaOnibus">
+          <mat-option *ngFor="let bus of listBus" [value]="bus">
+            {{bus.idLinha}} - {{bus.nome}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="element2">
+          <textarea matInput placeholder="Lista onibus" name="ListaOnibus"></textarea>
+          <li matInput placeholder="Lista onibus" name="ListaOnibus" *ngFor="let linhaOnibus of baseObject.linhaOnibus">
+              {{linhaOnibus.nome}}
+          </li>
+        </mat-form-field>
+
+      <div>
+        <button mat-raised-button (click)="save()" color="primary">Salvar</button>
+        <button mat-raised-button color="warn">Cancelar</button>
+        <button mat-raised-button (click)="change()" color="primary">Adicionar na lista</button>
+      </div>
+      
+    </section>
+  </div>
+
+</section>
